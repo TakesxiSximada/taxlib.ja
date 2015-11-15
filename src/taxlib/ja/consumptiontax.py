@@ -21,13 +21,13 @@ class ConsumptionTaxRate(object):
         u"""Return consumption tax rate"""
         _now = self._now if now_ is None else now_
         if _now < POINT_TAKESHITA:
-            return Decimal(0)
+            return Decimal('0')
         elif POINT_TAKESHITA <= _now < POINT_HASHIMOTO:
-            return Decimal(0.03)
+            return Decimal('0.03')
         elif POINT_HASHIMOTO <= _now < POINT_ABE:
-            return Decimal(0.05)
+            return Decimal('0.05')
         elif POINT_ABE <= _now:
-            return Decimal(0.08)
+            return Decimal('0.08')
         else:
             assert False, 'Invalid datetime: {}'.format(self._datetime)  # noqa
 
